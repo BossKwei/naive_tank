@@ -1,0 +1,12 @@
+<launch>
+  <include file="./m_file/3dsensor.launch.xml">
+    <arg name="rgb_processing" value="false" />
+    <arg name="depth_registration" value="false" />
+    <arg name="depth_processing" value="false" />
+ 
+    <arg name="scan_topic" value="/scan" />
+  </include>
+
+  <include file="./m_file/gmapping.launch.xml"/>
+
+</launch>

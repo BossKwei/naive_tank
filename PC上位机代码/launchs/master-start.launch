@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find freenect_launch)/launch/tf.launch"></include>
+  <include file="$(find freenect_launch)/launch/rosberrypi-gmapping.launch"></include>
+</launch>

@@ -1,0 +1,382 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/24/2016  11:03:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+E:\KEIL\C51\BIN\BL51.EXE Test.obj TO MotorEncoder RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Test.obj (TEST)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  E:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  E:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  MotorEncoder (TEST)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000CH     UNIT         ?DT?TEST
+            DATA    0014H     0002H     UNIT         _DATA_GROUP_
+                    0016H     000AH                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?TEST
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     0005H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     0005H                  *** GAP ***
+            CODE    0013H     0003H     ABSOLUTE     
+                    0016H     07EAH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     004FH     UNIT         ?PR?LEFT_ENCODER_A?TEST
+            CODE    08DBH     003EH     UNIT         ?PR?RIGHT_ENCODER_A?TEST
+            CODE    0919H     0037H     UNIT         ?PR?TIMER0INTERRUPT?TEST
+            CODE    0950H     002DH     UNIT         ?PR?_SENDDATA?TEST
+            CODE    097DH     001EH     UNIT         ?PR?MAIN?TEST
+            CODE    099BH     0019H     UNIT         ?C?LIB_CODE
+            CODE    09B4H     0013H     UNIT         ?PR?_SENDSTR?TEST
+            CODE    09C7H     0011H     UNIT         ?PR?INITMOTOR?TEST
+            CODE    09D8H     0011H     UNIT         ?C_INITSEG
+            CODE    09E9H     0010H     UNIT         ?PR?INITTIMER0?TEST
+            CODE    09F9H     000EH     UNIT         ?PR?DELAY500MS?TEST
+            CODE    0A07H     000EH     UNIT         ?PR?INITUART?TEST
+            CODE    0A15H     000DH     UNIT         ?PR?DELAY100MS?TEST
+            CODE    0A22H     000DH     UNIT         ?PR?DELAY200MS?TEST
+            CODE    0A2FH     000CH     UNIT         ?PR?INITPRIORITY?TEST
+            CODE    0A3BH     000BH     UNIT         ?PR?INITENCODER?TEST
+            CODE    0A46H     0009H     UNIT         ?PR?DELAY10MS?TEST
+            CODE    0A4FH     0008H     UNIT         ?PR?_SENDBYTE?TEST
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/24/2016  11:03:15  PAGE 2
+
+
+
+OVERLAY MAP OF MODULE:   MotorEncoder (TEST)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?TEST
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEST                    -----    -----
+  +--> ?PR?INITUART?TEST
+  +--> ?PR?INITMOTOR?TEST
+  +--> ?PR?INITENCODER?TEST
+  +--> ?PR?INITTIMER0?TEST
+  +--> ?PR?_SENDDATA?TEST
+  +--> ?PR?DELAY500MS?TEST
+
+?PR?_SENDDATA?TEST               0014H    0002H
+  +--> ?PR?_SENDBYTE?TEST
+
+
+
+SYMBOL TABLE OF MODULE:  MotorEncoder (TEST)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TEST
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0A2FH         PUBLIC        InitPriority
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0A15H         PUBLIC        delay100ms
+  B:00A8H.7       PUBLIC        EA
+  C:0A22H         PUBLIC        delay200ms
+  C:0919H         PUBLIC        Timer0Interrupt
+  C:0950H         PUBLIC        _SendData
+  B:0090H.4       PUBLIC        Right_Motor_En
+  D:0008H         PUBLIC        Encoder_Counter
+  C:09F9H         PUBLIC        delay500ms
+  B:00A0H.4       PUBLIC        Pi_Control_OUT1
+  B:00A0H.5       PUBLIC        Pi_Control_OUT2
+  B:00A0H.6       PUBLIC        Pi_Control_OUT3
+  B:00A0H.7       PUBLIC        Pi_Control_OUT4
+  D:00A8H         PUBLIC        IE
+  B:0090H.5       PUBLIC        Left_Motor_En
+  D:00B8H         PUBLIC        IP
+  B:0098H.1       PUBLIC        TI
+  B:00A0H.0       PUBLIC        Right_Motor_IN1
+  B:00A0H.1       PUBLIC        Right_Motor_IN2
+  C:0A4FH         PUBLIC        _SendByte
+  B:00B8H.4       PUBLIC        PS
+  C:097DH         PUBLIC        main
+  C:09C7H         PUBLIC        InitMotor
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/24/2016  11:03:15  PAGE 3
+
+
+  B:00A0H.2       PUBLIC        Left_Motor_IN1
+  B:00A0H.3       PUBLIC        Left_Motor_IN2
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:08DBH         PUBLIC        Right_Encoder_A
+  C:09B4H         PUBLIC        _SendStr
+  B:0090H.2       PUBLIC        Right_Encoder_B
+  B:00A8H.1       PUBLIC        ET0
+  C:09E9H         PUBLIC        InitTimer0
+  D:008CH         PUBLIC        TH0
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  D:008DH         PUBLIC        TH1
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  D:008AH         PUBLIC        TL0
+  C:088CH         PUBLIC        Left_Encoder_A
+  B:0090H.3       PUBLIC        Left_Encoder_B
+  C:0A07H         PUBLIC        InitUART
+  B:00B8H.1       PUBLIC        PT0
+  C:0A46H         PUBLIC        delay10ms
+  B:0088H.4       PUBLIC        TR0
+  B:0088H.6       PUBLIC        TR1
+  B:00B8H.0       PUBLIC        PX0
+  B:00B8H.2       PUBLIC        PX1
+  C:0A3BH         PUBLIC        InitEncoder
+  D:00B7H         PUBLIC        IPH
+  D:00C8H         PUBLIC        T2CON
+  B:0020H.0       PUBLIC        PWM_Val
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          DELAY10MS
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:0A46H         LINE#         8
+  C:0A46H         LINE#         9
+  C:0A46H         LINE#         11
+  C:0A48H         LINE#         12
+  C:0A4EH         LINE#         13
+  -------         ENDPROC       DELAY10MS
+  -------         PROC          DELAY100MS
+  -------         DO            
+  D:0005H         SYMBOL        a
+  D:0006H         SYMBOL        b
+  D:0007H         SYMBOL        c
+  -------         ENDDO         
+  C:0A15H         LINE#         16
+  C:0A15H         LINE#         17
+  C:0A15H         LINE#         19
+  C:0A17H         LINE#         20
+  C:0A19H         LINE#         21
+  C:0A21H         LINE#         22
+  -------         ENDPROC       DELAY100MS
+  -------         PROC          DELAY200MS
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/24/2016  11:03:15  PAGE 4
+
+
+  -------         DO            
+  D:0005H         SYMBOL        a
+  D:0006H         SYMBOL        b
+  D:0007H         SYMBOL        c
+  -------         ENDDO         
+  C:0A22H         LINE#         24
+  C:0A22H         LINE#         25
+  C:0A22H         LINE#         27
+  C:0A24H         LINE#         28
+  C:0A26H         LINE#         29
+  C:0A2EH         LINE#         30
+  -------         ENDPROC       DELAY200MS
+  -------         PROC          DELAY500MS
+  -------         DO            
+  D:0005H         SYMBOL        a
+  D:0006H         SYMBOL        b
+  D:0007H         SYMBOL        c
+  -------         ENDDO         
+  C:09F9H         LINE#         32
+  C:09F9H         LINE#         33
+  C:09F9H         LINE#         35
+  C:09FBH         LINE#         36
+  C:09FDH         LINE#         37
+  C:0A05H         LINE#         38
+  C:0A06H         LINE#         39
+  -------         ENDPROC       DELAY500MS
+  -------         PROC          INITUART
+  C:0A07H         LINE#         41
+  C:0A07H         LINE#         42
+  C:0A07H         LINE#         43
+  C:0A0AH         LINE#         44
+  C:0A0DH         LINE#         45
+  C:0A10H         LINE#         46
+  C:0A12H         LINE#         47
+  C:0A14H         LINE#         49
+  -------         ENDPROC       INITUART
+  -------         PROC          _SENDBYTE
+  D:0007H         SYMBOL        dat
+  C:0A4FH         LINE#         51
+  C:0A4FH         LINE#         52
+  C:0A4FH         LINE#         53
+  C:0A51H         LINE#         54
+  C:0A54H         LINE#         56
+  C:0A56H         LINE#         57
+  -------         ENDPROC       _SENDBYTE
+  -------         PROC          _SENDDATA
+  D:0001H         SYMBOL        s
+  D:0014H         SYMBOL        len
+  -------         DO            
+  D:0006H         SYMBOL        crc
+  -------         ENDDO         
+  C:0950H         LINE#         59
+  C:0954H         LINE#         60
+  C:0954H         LINE#         61
+  C:0956H         LINE#         62
+  C:0963H         LINE#         63
+  C:0963H         LINE#         64
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/24/2016  11:03:15  PAGE 5
+
+
+  C:096AH         LINE#         65
+  C:096FH         LINE#         66
+  C:0976H         LINE#         67
+  C:0978H         LINE#         68
+  -------         ENDPROC       _SENDDATA
+  -------         PROC          _SENDSTR
+  D:0001H         SYMBOL        s
+  C:09B4H         LINE#         71
+  C:09B4H         LINE#         72
+  C:09B4H         LINE#         73
+  C:09BAH         LINE#         74
+  C:09BAH         LINE#         75
+  C:09BDH         LINE#         76
+  C:09C4H         LINE#         77
+  C:09C6H         LINE#         78
+  -------         ENDPROC       _SENDSTR
+  -------         PROC          INITENCODER
+  C:0A3BH         LINE#         88
+  C:0A3BH         LINE#         89
+  C:0A3BH         LINE#         90
+  C:0A3DH         LINE#         91
+  C:0A3FH         LINE#         92
+  C:0A41H         LINE#         93
+  C:0A43H         LINE#         94
+  C:0A45H         LINE#         95
+  -------         ENDPROC       INITENCODER
+  -------         PROC          RIGHT_ENCODER_A
+  C:08DBH         LINE#         97
+  C:08EAH         LINE#         99
+  C:090CH         LINE#         100
+  -------         ENDPROC       RIGHT_ENCODER_A
+  -------         PROC          LEFT_ENCODER_A
+  C:088CH         LINE#         102
+  C:08A3H         LINE#         104
+  C:08C6H         LINE#         105
+  -------         ENDPROC       LEFT_ENCODER_A
+  -------         PROC          INITMOTOR
+  C:09C7H         LINE#         119
+  C:09C7H         LINE#         120
+  C:09C7H         LINE#         121
+  C:09C9H         LINE#         122
+  C:09CBH         LINE#         123
+  C:09CDH         LINE#         124
+  C:09CFH         LINE#         126
+  C:09D1H         LINE#         127
+  C:09D3H         LINE#         128
+  C:09D5H         LINE#         129
+  C:09D7H         LINE#         130
+  -------         ENDPROC       INITMOTOR
+  -------         PROC          INITTIMER0
+  C:09E9H         LINE#         133
+  C:09E9H         LINE#         134
+  C:09E9H         LINE#         135
+  C:09ECH         LINE#         136
+  C:09EFH         LINE#         137
+  C:09F2H         LINE#         138
+  C:09F4H         LINE#         139
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/24/2016  11:03:15  PAGE 6
+
+
+  C:09F6H         LINE#         140
+  C:09F8H         LINE#         141
+  -------         ENDPROC       INITTIMER0
+  -------         PROC          TIMER0INTERRUPT
+  C:0919H         LINE#         148
+  C:091BH         LINE#         150
+  C:091EH         LINE#         151
+  C:0921H         LINE#         154
+  C:0929H         LINE#         155
+  C:0929H         LINE#         156
+  C:092BH         LINE#         157
+  C:092DH         LINE#         158
+  C:092FH         LINE#         160
+  C:092FH         LINE#         161
+  C:0931H         LINE#         162
+  C:0933H         LINE#         163
+  C:0933H         LINE#         164
+  C:0937H         LINE#         165
+  C:093BH         LINE#         166
+  C:093FH         LINE#         167
+  C:0943H         LINE#         169
+  C:0945H         LINE#         170
+  C:0949H         LINE#         171
+  C:094DH         LINE#         172
+  -------         ENDPROC       TIMER0INTERRUPT
+  -------         PROC          INITPRIORITY
+  C:0A2FH         LINE#         176
+  C:0A2FH         LINE#         177
+  C:0A2FH         LINE#         178
+  C:0A32H         LINE#         179
+  C:0A34H         LINE#         180
+  C:0A36H         LINE#         181
+  C:0A38H         LINE#         182
+  C:0A3AH         LINE#         183
+  -------         ENDPROC       INITPRIORITY
+  -------         PROC          MAIN
+  C:097DH         LINE#         185
+  C:097DH         LINE#         186
+  C:097DH         LINE#         187
+  C:0980H         LINE#         188
+  C:0983H         LINE#         189
+  C:0986H         LINE#         190
+  C:0989H         LINE#         195
+  C:0989H         LINE#         196
+  C:0989H         LINE#         197
+  C:0996H         LINE#         198
+  C:0999H         LINE#         199
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEST
+
+  -------         MODULE        ?C?CLDPTR
+  C:099BH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY10MS?TEST
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/24/2016  11:03:15  PAGE 7
+
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?TEST
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY200MS?TEST
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SENDSTR?TEST
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INITPRIORITY?TEST
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01BAH BYTE (21%) *
+******************************************************************************
+
+Program Size: data=23.1 xdata=0 code=611
+LINK/LOCATE RUN COMPLETE.  5 WARNING(S),  0 ERROR(S)
