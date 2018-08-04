@@ -1,6 +1,6 @@
 # naive_tank
 
-![](1.png)
+![](naive_tank.jpg)
 
 ![](2.png)
 
